@@ -18,7 +18,8 @@ const LoginPage = () => {
         identifier: identifier,
         password: password,
       });
-      if (login.data) {
+      // console.log(login.data.userDetails);
+      if (login.data.userDetails.user_id === "admin") {
         alert("User Login Successfully");
         const userToken = login.data.token; //GET THE TOKEN FROM BACKEND
         Cookies.set("userToken", userToken);
