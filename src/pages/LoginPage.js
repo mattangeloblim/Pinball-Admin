@@ -35,7 +35,9 @@ const LoginPage = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-200">
       <div className="lg:w-1/5 md:w-1/4 bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">Login</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center uppercase">
+          Admin Login
+        </h2>
         <form>
           <div className="mb-4">
             <label
