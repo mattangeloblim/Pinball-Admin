@@ -64,9 +64,9 @@ function AdminButtons() {
   // const [currentGameId, setCurrentGameId] = useState(null);
 
   //disable other buttons for 5 sec after button click
-  const handleButtonClick = (color, index) => {
+  const handleButtonClick = () => {
     if (!isClicked) {
-      buttonVisibilityHandler(color, index);
+        
       setIsClicked(true);
       setClickedIndex(index);
       openModal();
@@ -87,9 +87,9 @@ function AdminButtons() {
     // setWinningColor("")
   };
 
-  const confirmAndGenerateResult = () => {
+  const confirmAndGenerateResult = (index) => {
     const color = colorHex[clickedIndex];
-    // Additional logic if needed before generating result
+    buttonVisibilityHandler(color, index);
     handleGenerateResult(clickedIndex);
     setWinningColor(color)
     // Close the modal
@@ -121,7 +121,7 @@ function AdminButtons() {
               height: 75,
               width: 150,
             }}
-            onClick={() => handleButtonClick(color, index)}
+            onClick={handleButtonClick}
           ></Button>
         ))}
       </div>
@@ -134,7 +134,7 @@ function AdminButtons() {
           style={{ backgroundColor: winningColor }}
         ></div>
       </div>
-      <Modal color={winningColor} isOpen={isModalOpen} onClose={closeModal} onConfirm={confirmAndGenerateResult} />
+      <Modal color={winningColor} isOpen={isModalOpen} onClose={closeModal} onConfirm={() => confirmAndGenerateResult(index)} />
     </div>
   );
 }
