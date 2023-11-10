@@ -68,13 +68,13 @@ function AdminButtons() {
     if (!isClicked) {
       setIsClicked(true);
       setClickedIndex(index);
-      openModal();
+      openModal(color);
 
     }
   };
 
-  const openModal = () => {
-    // setWinningColor(color)
+  const openModal = (color) => {
+    setWinningColor(color)
     setIsModalOpen(true);
   };
 
