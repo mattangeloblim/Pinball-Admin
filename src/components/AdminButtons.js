@@ -66,7 +66,6 @@ function AdminButtons() {
   //disable other buttons for 5 sec after button click
   const handleButtonClick = (color, index) => {
     if (!isClicked) {
-      buttonVisibilityHandler(color, index);
       setIsClicked(true);
       setClickedIndex(index);
       openModal();
@@ -89,7 +88,7 @@ function AdminButtons() {
 
   const confirmAndGenerateResult = () => {
     const color = colorHex[clickedIndex];
-
+    buttonVisibilityHandler(color, clickedIndex);
     handleGenerateResult(clickedIndex);
     setWinningColor(color)
     // Close the modal
