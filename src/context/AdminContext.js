@@ -148,15 +148,15 @@ export const AdminProvider = ({ children, obsAddress, obs }) => {
     // console.log(color);
     setWinningColor(colorHex[index]);
     const buttonStates = {
-      red: setRedButton,
-      green: setGreenButton,
-      yellow: setYellowButton,
-      blue: setBlueButton,
-      violet: setVioletButton,
-      orange: setOrangeButton,
-      pink: setPinkButton,
-      cyan: setCyanButton,
-      gold: setGoldButton,
+      [colorHex[0]]: setRedButton,
+      [colorHex[3]]: setGreenButton,
+      [colorHex[2]]: setYellowButton,
+      [colorHex[1]]: setBlueButton,
+      [colorHex[5]]: setVioletButton,
+      [colorHex[6]]: setOrangeButton,
+      [colorHex[7]]: setPinkButton,
+      [colorHex[8]]: setCyanButton,
+      [colorHex[4]]: setGoldButton,
     };
 
     Object.keys(buttonStates).forEach((buttonColor) => {
