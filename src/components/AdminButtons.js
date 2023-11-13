@@ -1,13 +1,12 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
-import "./style.css"
+import "./style.css";
 
 import { Button } from "@mui/material";
 
 import useAdminContext from "../context/AdminContext";
 
 const Modal = ({ color, isOpen, onClose, onConfirm }) => {
-
   const colorNames = {
     "#ED3130": "Red",
     "#276ADD": "Blue",
@@ -23,10 +22,16 @@ const Modal = ({ color, isOpen, onClose, onConfirm }) => {
   const colorName = colorNames[color] || color;
 
   return (
-    <div className={`fixed top-0 left-0 w-full h-full flex items-center justify-center ${isOpen ? '' : 'hidden'}`}>
+    <div
+      className={`fixed top-0 left-0 w-full h-full flex items-center justify-center ${
+        isOpen ? "" : "hidden"
+      }`}
+    >
       <div className="absolute w-full h-full bg-gray-800 opacity-50"></div>
       <div className="z-10 w-1/4 bg-white rounded p-8 text-center">
-        <p className="mb-4">Please confirm that the winning color is <strong>{colorName}</strong>.</p>
+        <p className="mb-4">
+          Please confirm that the winning color is <strong>{colorName}</strong>.
+        </p>
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           onClick={() => {
@@ -69,12 +74,11 @@ function AdminButtons() {
       setIsClicked(true);
       setClickedIndex(index);
       openModal(color);
-
     }
   };
 
   const openModal = (color) => {
-    setWinningColor(color)
+    setWinningColor(color);
     setIsModalOpen(true);
   };
 
@@ -90,10 +94,10 @@ function AdminButtons() {
     const color = colorHex[clickedIndex];
     buttonVisibilityHandler(color, clickedIndex);
     handleGenerateResult(clickedIndex);
-    setWinningColor(color)
+    setWinningColor(color);
     // Close the modal
     setIsModalOpen(false);
-    setIsBlinking(true); 
+    setIsBlinking(true);
     setTimeout(() => {
       setIsBlinking(false);
     }, 5000);
@@ -101,13 +105,17 @@ function AdminButtons() {
 
   return (
     <div className="border-2 border-blue-600 flex flex-col justify-center">
-      <h1 className={`m-6 uppercase text-3xl font-bold text-center ${isBlinking ? 'blink-animation' : ''}`}>
+      <h1
+        className={`m-6 uppercase text-3xl font-bold text-center ${
+          isBlinking ? "blink-animation" : ""
+        }`}
+      >
         game id: <span>{gameId}</span>
       </h1>
       <h1 className="m-6 uppercase text-lg font-bold text-start">
         select the winning color to be displayed:
       </h1>
-      <div className="grid grid-cols-4 gap-2 mx-4">
+      <div className="grid grid-cols-3 gap-2 mx-4">
         {colorHex.map((color, index) => (
           <Button
             key={index}
@@ -124,7 +132,11 @@ function AdminButtons() {
           ></Button>
         ))}
       </div>
-      <div className={`flex justify-center items-center gap-4 m-6 ${isBlinking ? 'blink-animation' : ''}`}>
+      <div
+        className={`flex justify-center items-center gap-4 m-6 ${
+          isBlinking ? "blink-animation" : ""
+        }`}
+      >
         <h2 className="uppercase font-bold text-md text-center">
           winning color:
         </h2>
@@ -133,7 +145,12 @@ function AdminButtons() {
           style={{ backgroundColor: winningColor }}
         ></div>
       </div>
-      <Modal color={winningColor} isOpen={isModalOpen} onClose={closeModal} onConfirm={confirmAndGenerateResult} />
+      <Modal
+        color={winningColor}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onConfirm={confirmAndGenerateResult}
+      />
     </div>
   );
 }
