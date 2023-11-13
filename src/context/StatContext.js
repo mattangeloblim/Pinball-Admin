@@ -81,12 +81,16 @@ export const StatProvider = ({ children }) => {
           await getColorPercentage();
         setDonutColor(Object.values(colorCount));
 
-        //DAILY STATS
+        // DAILY STATS
         const dailyAvgBet = totalBetAmount / count;
+
         if (count === 0) {
           setAvgTodayBet(0);
         } else {
-          setAvgTodayBet(dailyAvgBet);
+          // Round down to the nearest integer using Math.floor
+          const roundedAvgBet = Math.floor(dailyAvgBet);
+
+          setAvgTodayBet(roundedAvgBet);
           setTodaysBetNumber(count);
         }
 
