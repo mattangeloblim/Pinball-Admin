@@ -99,6 +99,10 @@ export const AdminProvider = ({ children, obsAddress, obs }) => {
 
         await Promise.all(
           buttons.map(async (button) => {
+            await obs.call('SetCurrentProgramScene', {
+              sceneName: 'Results n Rewards'
+            })
+
             await obs.call("SetSceneItemEnabled", {
               sceneName: "Results n Rewards",
               ...button,
@@ -120,6 +124,7 @@ export const AdminProvider = ({ children, obsAddress, obs }) => {
     cyanButton,
     goldButton,
   ]);
+
 
   const handleGenerateResult = async (index) => {
     try {
