@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Avatar from "@mui/material/Avatar";
 
 import { io } from "socket.io-client";
 import Cookies from "js-cookie";
@@ -60,22 +61,68 @@ function LiveChat() {
     }
   }, [messages]);
 
+  function stringToColor(string) {
+    let hash = 0;
+    let i;
+
+    /* eslint-disable no-bitwise */
+    for (i = 0; i < string.length; i += 1) {
+      hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    let color = "#";
+
+    for (i = 0; i < 3; i += 1) {
+      const value = (hash >> (i * 8)) & 0xff;
+      color += `00${value.toString(16)}`.slice(-2);
+    }
+    /* eslint-enable no-bitwise */
+
+    return color;
+  }
+
+  function stringAvatar(name) {
+    //INITIALS
+    // return {
+    //   sx: {
+    //     bgcolor: stringToColor(name),
+    //   },
+    //   children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+    // };
+
+    //FIRST TWO LETTER
+    const firstTwoLetters = name.substring(0, 2);
+
+    return {
+      sx: {
+        bgcolor: stringToColor(name),
+      },
+      children: firstTwoLetters,
+    };
+  }
+
   return (
     <>
-      <div className="h-full chat-feed flex flex-col gap-2 border-2 border-black py-2 px-2 bg-slate-200">
+      <div className="h-full chat-feed flex flex-col gap-2 border-2 border-black py-2 px-2 bg-[#0d4fa3]">
         <ul
           className="h-full w-full overflow-y-auto border-2 border-red-600"
           ref={messagesListRef}
         >
           {messages.map((message, index) => (
             <li key={index} className="p-1 w-fit rounded-md break-words">
-              <p>
-                <AccountCircleIcon style={{ color: "black" }} />
-                <strong className="ml-1 text-black font-semibold">
-                  {message.userId}:{" "}
-                </strong>{" "}
-                <span className="text-black">{message.message.message}</span>
-              </p>
+              <div className="flex justify-center items-center">
+                <Avatar
+                  {...stringAvatar(message.userId)}
+                  style={{ width: "2rem", height: "2rem" }}
+                />
+                {/* <AccountCircleIcon style={{ color: "white" }} /> */}
+                <p>
+                  <strong className="ml-1 text-white font-semibold">
+                    {message.userId}:{" "}
+                  </strong>{" "}
+                  <span className="text-white">{message.message.message}</span>
+                </p>
+              </div>
             </li>
           ))}
         </ul>
