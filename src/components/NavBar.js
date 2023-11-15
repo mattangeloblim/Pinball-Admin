@@ -29,7 +29,7 @@ function NavBar() {
   }, [location]);
 
   return (
-    <div className="flex items-center justify-center mb-10">
+    <div className="flex items-center justify-center mb-10 font-['Poppins']">
       <div className="border-b-2 border-black w-[95%] flex items-center justify-center">
         <div className=" p-6 text-2xl font-semibold uppercase text-gray-500">
           {linkName.map((link, key) => (

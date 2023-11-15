@@ -58,7 +58,7 @@ export default function AdminGameHistory() {
   return (
     <>
       <NavBar />
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center font-['Poppins']">
         <div className="w-[80%] ">
           <h1 className=" w-full text-3xl font-semibold text-center uppercase underline">
             game history table
