@@ -16,7 +16,7 @@ function AdminStats() {
     <>
       <NavBar />
       <StatProvider>
-        <div className="flex flex-col items-center ">
+        <div className="flex flex-col items-center font-['Poppins']">
           <div className=" w-[80%] flex flex-col justify-center gap-6">
             <h1 className=" w-full text-3xl font-semibold text-center uppercase underline">
               Game statistics
