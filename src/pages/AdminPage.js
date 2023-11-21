@@ -32,13 +32,13 @@ const AdminPage = () => {
       setTimeout(async () => {
         try {
           // Make the Axios request after the delay
-          const response = await axios.post('http://localhost:8443/api/bettings/closed');
+          const response = await axios.post('https://54.254.174.201/api/bettings/closed');
           console.log('API response:', response.data);
 
         } catch (error) {
           console.error('Error making API request:', error.message);
         }
-      }, 90000);
+      }, 30000);
 
     } catch (error) {
       console.error('Error connecting to OBS:', error.message);
