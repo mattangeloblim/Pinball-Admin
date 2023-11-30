@@ -94,7 +94,7 @@ export const AdminProvider = ({ children, obsAddress, obs }) => {
           { sceneItemId: 9, sceneItemEnabled: orangeButton },
           { sceneItemId: 10, sceneItemEnabled: pinkButton },
           { sceneItemId: 11, sceneItemEnabled: cyanButton },
-          { sceneItemId: 12, sceneItemEnabled: goldButton },
+          { sceneItemId: 15, sceneItemEnabled: goldButton },
         ];
 
         await Promise.all(
