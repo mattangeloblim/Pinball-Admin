@@ -86,14 +86,14 @@ export const AdminProvider = ({ children, obsAddress, obs }) => {
         console.log(`Connected to OBS`);
 
         const buttons = [
-          { sceneItemId: 4, sceneItemEnabled: redButton },
-          { sceneItemId: 5, sceneItemEnabled: greenButton },
-          { sceneItemId: 6, sceneItemEnabled: yellowButton },
-          { sceneItemId: 7, sceneItemEnabled: blueButton },
-          { sceneItemId: 8, sceneItemEnabled: violetButton },
-          { sceneItemId: 9, sceneItemEnabled: orangeButton },
-          { sceneItemId: 10, sceneItemEnabled: pinkButton },
-          { sceneItemId: 11, sceneItemEnabled: cyanButton },
+          { sceneItemId: 23, sceneItemEnabled: redButton },
+          { sceneItemId: 22, sceneItemEnabled: greenButton },
+          { sceneItemId: 21, sceneItemEnabled: yellowButton },
+          { sceneItemId: 20, sceneItemEnabled: blueButton },
+          { sceneItemId: 19, sceneItemEnabled: violetButton },
+          { sceneItemId: 18, sceneItemEnabled: orangeButton },
+          { sceneItemId: 17, sceneItemEnabled: pinkButton },
+          { sceneItemId: 16, sceneItemEnabled: cyanButton },
           { sceneItemId: 15, sceneItemEnabled: goldButton },
         ];
 
