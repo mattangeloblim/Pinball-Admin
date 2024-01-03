@@ -18,7 +18,7 @@ function AdminStats() {
       <NavBar />
       <StatProvider>
         <div className="flex flex-col items-center font-['Poppins']">
-          <div className=" w-[80%] flex flex-col justify-center gap-6">
+          <div className=" w-[90%] flex flex-col justify-center gap-6">
             <h1 className=" w-full text-3xl font-semibold text-center uppercase underline">
               Game statistics
             </h1>
@@ -26,21 +26,21 @@ function AdminStats() {
               <PlayerStats />
               <TimeOfDayStats />
             </div>
-            <div className="flex w-full gap-4 ">
-              <div className="shadow-gray-400 shadow-md rounded-xl">
+            <div className="flex w-full gap-2">
+              <div className="shadow-gray-400 shadow-md rounded-xl flex-1">
                 <h1 className="text-md capitalize font-bold m-4">
                   All Time Win % per color
                 </h1>
                 <DonutChartComponent />
               </div>
-              <div className="shadow-gray-400 shadow-md rounded-xl w-[40%]">
+              <div className="shadow-gray-400 shadow-md rounded-xl flex-1">
                 <h1 className="text-md capitalize font-bold m-4">
                   All Time Player Activity
                 </h1>
                 {/* <BarGraphComponent /> */}
                 <SplineLineChart />
               </div>
-              <div className="shadow-gray-400 shadow-md rounded-xl ">
+              <div className="shadow-gray-400 shadow-md rounded-xl flex-1">
                 <h1 className="text-md capitalize font-bold m-4">
                   All Time percentage of wins vs. losses
                 </h1>

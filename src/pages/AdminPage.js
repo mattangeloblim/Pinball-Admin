@@ -32,14 +32,14 @@ const AdminPage = () => {
       setTimeout(async () => {
         try {
           // Make the Axios request after the delay
-          const response = await axios.post('https://54.254.174.201/api/bettings/closed');
-          console.log('API response:', response.data);
-
+          const response = await axios.post(
+            "https://54.254.174.201/api/bettings/closed"
+          );
+          console.log("API response:", response.data);
         } catch (error) {
           console.error("Error making API request:", error.message);
         }
       }, 30000);
-
     } catch (error) {
       console.error("Error connecting to OBS:", error.message);
     }
@@ -56,12 +56,12 @@ const AdminPage = () => {
           <h1 className=" w-full text-3xl font-semibold text-center mb-5 underline">
             GAME LIVE STREAM MASTER CONTROLLER
           </h1>
-          <div className=" flex flex-col ">
-            <div className="flex border-2 border-black justify-center max-h-[55vh]">
-              <div className="live-chat-container w-[30rem] border-2 border-green-600">
+          <div className=" flex flex-col w-[95%]">
+            <div className="flex  justify-center max-h-[55vh] gap-2">
+              <div className="live-chat-container w-[30rem] ">
                 <LiveChat />
               </div>
-              <div className="flex flex-col justify-between gap-2 py-2 items-center border-2 border-blue-600 w-[45%]">
+              <div className="flex flex-col justify-between gap-2 items-center  w-[40%]">
                 <LiveStreamFrame />
                 <button
                   className="p-4 bg-blue-500 text-xl font-bold font-['Poppins'] uppercase text-white rounded-lg"

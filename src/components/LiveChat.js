@@ -44,16 +44,6 @@ function LiveChat() {
     };
   }, [socket]); // Make sure to include socket in the dependency array
 
-  //chat function
-  //   const sendMessage = (e) => {
-  //     e.preventDefault();
-  //     if (socket && newMessage && userId) {
-  //       // Emit 'chatMessage' event to the server with userId and newMessage
-  //       socket.emit("chatMessage", { userId, message: newMessage });
-  //       setNewMessage("");
-  //     }
-  //   };
-
   useEffect(() => {
     // Scroll to the bottom of the messages list when it updates
     if (messagesListRef.current) {
@@ -82,15 +72,6 @@ function LiveChat() {
   }
 
   function stringAvatar(name) {
-    //INITIALS
-    // return {
-    //   sx: {
-    //     bgcolor: stringToColor(name),
-    //   },
-    //   children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-    // };
-
-    //FIRST TWO LETTER
     const firstTwoLetters = name.substring(0, 2);
 
     return {
@@ -103,7 +84,7 @@ function LiveChat() {
 
   return (
     <>
-      <div className="h-full chat-feed flex flex-col gap-2 border-2 border-black py-2 px-2 bg-[#0d4fa3]">
+      <div className="h-full chat-feed flex flex-col gap-2  py-2 px-2 bg-[#0d4fa3] rounded-lg">
         <ul
           className="h-full w-full overflow-y-auto border-2 border-red-600"
           ref={messagesListRef}
