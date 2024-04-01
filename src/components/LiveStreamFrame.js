@@ -2,7 +2,7 @@ import React from "react";
 
 function LiveStreamFrame() {
   return (
-    <div className="relative w-full pb-[50.625%] border-2 border-red-600">
+    <div className="relative w-full pb-[50.625%]">
       <iframe
         //We'll use the padding bottom technique to maintain 16:9 ratio
         className=" absolute w-full h-full"

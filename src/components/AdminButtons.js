@@ -104,18 +104,18 @@ function AdminButtons() {
   };
 
   return (
-    <div className="border-2 border-blue-600 flex flex-col justify-center">
+    <div className=" flex flex-col gap-2 p-2 justify-center border-2 border-black rounded-lg">
       <h1
-        className={`m-6 uppercase text-3xl font-bold text-center ${
+        className={`uppercase text-xl font-bold text-center ${
           isBlinking ? "blink-animation" : ""
         }`}
       >
         game id: <span>{gameId}</span>
       </h1>
-      <h1 className="m-6 uppercase text-lg font-bold text-start">
+      <h1 className="uppercase text-lg font-bold text-start">
         select the winning color to be displayed:
       </h1>
-      <div className="grid grid-cols-3 gap-2 mx-4">
+      <div className="grid grid-cols-3 gap-2">
         {colorHex.map((color, index) => (
           <Button
             key={index}
@@ -125,8 +125,8 @@ function AdminButtons() {
               border: clickedIndex === index ? "2px solid black" : "none",
               fontSize: "1.5rem",
               backgroundColor: color,
-              height: 75,
-              width: 150,
+              height: 70,
+              width: 120,
             }}
             onClick={() => handleButtonClick(color, index)}
           ></Button>

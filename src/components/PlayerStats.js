@@ -19,38 +19,38 @@ function PlayerStats() {
   } = useStatContext();
   return (
     <div className=" flex justify-center gap-6">
-      <div className="flex justify-around items-center p-3 shadow-gray-400 shadow-md rounded-xl">
+      <div className="flex justify-around items-center gap-4 p-3 shadow-gray-400 shadow-md rounded-xl">
         <GroupIcon style={{ fontSize: "4rem" }} />
         <div className="flex flex-col justify-center items-start ">
-          <h1 style={{ fontSize: "3rem", fontWeight: "600" }}>{userCount}</h1>
+          <h1 style={{ fontSize: "2rem", fontWeight: "300" }}>{userCount}</h1>
           <div className="text-md font font-semibold ">Total Players</div>
         </div>
       </div>
       <div className="flex justify-center items-center gap-4 p-3 shadow-gray-400 shadow-md rounded-xl">
         <RocketLaunchIcon style={{ fontSize: "4rem" }} />
         <div className="flex flex-col justify-center items-start ">
-          <h1 style={{ fontSize: "3rem", fontWeight: "600" }}>00</h1>
+          <h1 style={{ fontSize: "2rem", fontWeight: "300" }}>00</h1>
           <div className="text-md font font-semibold ">Total KYC</div>
         </div>
       </div>
       <div className="flex justify-center items-center gap-4 p-3 shadow-gray-400 shadow-md rounded-xl">
         <EmojiEventsIcon style={{ fontSize: "4rem" }} />
-        <div>
+        <div className="flex flex-col gap-2">
           <div className="flex flex-col justify-center items-start ">
-            <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+            <h1 style={{ fontSize: "1.2rem", fontWeight: "300" }}>
               {totalBetNumber}
             </h1>
             <div className="text-sm font font-semibold ">Total Bets</div>
           </div>
           <div className="flex justify-center items-start gap-4">
             <div className="flex flex-col">
-              <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+              <h1 style={{ fontSize: "1.2rem", fontWeight: "300" }}>
                 <h1>{winCount}</h1>
               </h1>
               <div className="text-sm font font-semibold ">Wins</div>
             </div>
             <div className="flex flex-col">
-              <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+              <h1 style={{ fontSize: "1.2rem", fontWeight: "300" }}>
                 <h1>{loseCount}</h1>
               </h1>
               <div className="text-sm font font-semibold ">Loses</div>
@@ -60,15 +60,15 @@ function PlayerStats() {
       </div>
       <div className="flex justify-center items-center gap-4 p-3 shadow-gray-400 shadow-md rounded-xl">
         <CreditCardIcon style={{ fontSize: "4rem" }} />
-        <div>
+        <div className="flex flex-col gap-2">
           <div className="flex flex-col justify-center items-start ">
-            <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+            <h1 style={{ fontSize: "1.2rem", fontWeight: "300" }}>
               ₱{parseInt(totalBetAmount).toLocaleString()}
             </h1>
             <div className="text-sm font font-semibold ">Total Bet Amount</div>
           </div>
           <div className="flex flex-col justify-center items-start ">
-            <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+            <h1 style={{ fontSize: "1.2rem", fontWeight: "300" }}>
               ₱{parseInt(avgBet).toLocaleString()}
             </h1>
             <div className="text-sm font font-semibold ">Average Bet Size</div>

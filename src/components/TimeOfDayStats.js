@@ -25,15 +25,15 @@ function TimeOfDayStats() {
           Daily Stats
         </h1>
         <AttachMoneyIcon style={{ fontSize: "4rem" }} />
-        <div>
+        <div className="flex flex-col gap-2">
           <div className="flex flex-col justify-center items-start ">
-            <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+            <h1 style={{ fontSize: "1.5rem", fontWeight: "300" }}>
               {todaysBetNumber}
             </h1>
             <div className="text-sm font font-semibold ">Bets Today</div>
           </div>
           <div className="flex flex-col justify-center items-start ">
-            <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+            <h1 style={{ fontSize: "1.5rem", fontWeight: "300" }}>
               ₱{avgTodayBet}
             </h1>
             <div className="text-sm font font-semibold ">Average Bet Size</div>
@@ -45,9 +45,12 @@ function TimeOfDayStats() {
           Daily Stats
         </h1>
         <QueryStatsIcon style={{ fontSize: "4rem" }} />
-        <div>
+        <div className="flex flex-col gap-2">
           <div className="flex flex-col justify-center items-start ">
-            <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+            <h1
+              style={{ fontSize: "1.5rem", fontWeight: "300" }}
+              className="capitalize"
+            >
               {popularColor}
             </h1>
             <div className="text-sm font font-semibold ">
@@ -55,7 +58,7 @@ function TimeOfDayStats() {
             </div>
           </div>
           <div className="flex flex-col justify-center items-start ">
-            <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+            <h1 style={{ fontSize: "1.5rem", fontWeight: "300" }}>
               {todayUserNumber}
             </h1>
             <div className="text-sm font font-semibold ">Players Today</div>
