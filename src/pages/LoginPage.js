@@ -1,88 +1,151 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
-import axios from "axios";
 import { useNavigate } from "react-router";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+
+//API
+import authService from "../services/auth/auth.service";
+
+//redux
+import { useDispatch } from "react-redux";
+// import { setUser } from "../Slice/UserSlice";
+
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="/dashboard">
+        Pinball Breddas
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 const LoginPage = () => {
-  const [identifier, setIdentifier] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const baseUrl = process.env.REACT_APP_BACKEND_URL;
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
 
-    try {
-      const login = await axios.post(`${baseUrl}/user/authentication/login`, {
-        identifier: identifier,
-        password: password,
-      });
-      // console.log(login.data.userDetails);
-      if (login.data.userDetails.user_id === "admin") {
-        alert("User Login Successfully");
-        const userToken = login.data.token; //GET THE TOKEN FROM BACKEND
-        Cookies.set("userToken", userToken);
+    const data = new FormData(e.currentTarget);
+    const username = data.get("username");
+    const password = data.get("password");
+
+    console.log("username: ", username);
+    console.log("password: ", password);
+
+    const response = await authService.loginUser(username, password);
+
+    if (response.message === "User login successfully") {
+      if (response.userDetails.user_id === "admin") {
+        Cookies.set("token", response.token, { expires: 4 });
+        toast.success("Successfully logged in.");
         navigate("/live");
       } else {
-        alert("Login failed. Please check your credentials.");
+        toast.error("Invalid Credentials");
       }
-    } catch (error) {
-      console.error("Error during login:", error);
-      alert("Please check your credentials or verify your account");
+    } else {
+      toast.error("Invalid Credentials");
     }
   };
+
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-200">
-      <div className="lg:w-1/5 md:w-1/4 bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold mb-8 text-center uppercase">
-          Admin Login
-        </h2>
-        <form>
-          <div className="mb-4">
-            <label
-              className="block text-gray-600 text-sm font-medium mb-2"
-              htmlFor="email"
-            >
-              Email or Username
-            </label>
-            <input
-              type="text"
-              id="email"
-              className="w-full border rounded-lg p-2"
-              placeholder="Enter Email or Username"
-              onChange={(e) => {
-                setIdentifier(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-600 text-sm font-medium mb-2"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="w-full border rounded-lg p-2"
-              placeholder="Enter Password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-          <button
-            className="w-full bg-blue-500 text-white font-semibold p-2 rounded-lg hover:bg-blue-600"
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        minHeight: "100vh",
+        justifyContent: "center",
+      }}
+    >
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          component="h1"
+          variant="h5"
+          sx={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "600",
+            fontSize: "2rem",
+          }}
+        >
+          Pinball Admin
+        </Typography>
+        <Typography
+          component="h1"
+          variant="h5"
+          sx={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "300",
+            fontSize: "1rem",
+          }}
+        >
+          Welcome!
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            inputProps={{ style: { fontFamily: "Poppins, sans serif" } }}
+            InputLabelProps={{ style: { fontFamily: "Poppins, sans serif" } }}
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            inputProps={{ style: { fontFamily: "Poppins, sans serif" } }}
+            InputLabelProps={{ style: { fontFamily: "Poppins, sans serif" } }}
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+
+          <Button
             type="submit"
-            onClick={handleLogin}
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
           >
-            Log In
-          </button>
-        </form>
-      </div>
-    </div>
+            Sign In
+          </Button>
+        </Box>
+      </Box>
+      <Copyright sx={{ mt: 8, mb: 4, fontFamily: "Poppins, sans serif" }} />
+    </Container>
   );
 };
 

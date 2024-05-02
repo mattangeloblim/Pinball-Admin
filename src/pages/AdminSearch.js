@@ -57,52 +57,49 @@ export default function AdminSearch() {
   }, []);
 
   return (
-    <>
-      <NavBar />
-      <div className="flex items-center justify-center font-['Poppins']">
-        <div className="w-[80%] ">
-          <h1 className=" w-full text-3xl font-semibold text-center uppercase underline">
-            search user
-          </h1>
-          <Box sx={{ width: 1 }}>
-            <FormControlLabel
-              checked={columnVisibilityModel.id !== false}
-              onChange={(event) =>
-                setColumnVisibilityModel(() => ({ id: event.target.checked }))
+    <div className="flex flex-col items-center font-['Poppins'] py-10">
+      <div className="w-[80%] ">
+        <h1 className=" w-full text-3xl font-semibold text-center uppercase underline">
+          search user
+        </h1>
+        <Box sx={{ width: 1 }}>
+          <FormControlLabel
+            checked={columnVisibilityModel.id !== false}
+            onChange={(event) =>
+              setColumnVisibilityModel(() => ({ id: event.target.checked }))
+            }
+            control={<Switch color="primary" size="large" />}
+            label="Show ID column"
+          />
+          <FormControlLabel
+            checked={filterModel.quickFilterExcludeHiddenColumns}
+            onChange={(event) =>
+              setFilterModel((model) => ({
+                ...model,
+                quickFilterExcludeHiddenColumns: event.target.checked,
+              }))
+            }
+            control={<Switch color="primary" size="large" />}
+            label="Exclude hidden columns"
+          />
+          <Box sx={{ height: 700 }}>
+            <DataGrid
+              columns={columns}
+              rows={data}
+              disableColumnFilter
+              disableDensitySelector
+              slots={{ toolbar: GridToolbar }}
+              filterModel={filterModel}
+              onFilterModelChange={(newModel) => setFilterModel(newModel)}
+              slotProps={{ toolbar: { showQuickFilter: true } }}
+              columnVisibilityModel={columnVisibilityModel}
+              onColumnVisibilityModelChange={(newModel) =>
+                setColumnVisibilityModel(newModel)
               }
-              control={<Switch color="primary" size="large" />}
-              label="Show ID column"
             />
-            <FormControlLabel
-              checked={filterModel.quickFilterExcludeHiddenColumns}
-              onChange={(event) =>
-                setFilterModel((model) => ({
-                  ...model,
-                  quickFilterExcludeHiddenColumns: event.target.checked,
-                }))
-              }
-              control={<Switch color="primary" size="large" />}
-              label="Exclude hidden columns"
-            />
-            <Box sx={{ height: 700 }}>
-              <DataGrid
-                columns={columns}
-                rows={data}
-                disableColumnFilter
-                disableDensitySelector
-                slots={{ toolbar: GridToolbar }}
-                filterModel={filterModel}
-                onFilterModelChange={(newModel) => setFilterModel(newModel)}
-                slotProps={{ toolbar: { showQuickFilter: true } }}
-                columnVisibilityModel={columnVisibilityModel}
-                onColumnVisibilityModelChange={(newModel) =>
-                  setColumnVisibilityModel(newModel)
-                }
-              />
-            </Box>
           </Box>
-        </div>
+        </Box>
       </div>
-    </>
+    </div>
   );
 }
