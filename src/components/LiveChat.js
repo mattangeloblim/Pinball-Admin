@@ -84,11 +84,9 @@ function LiveChat() {
 
   return (
     <>
-      <div className="h-full chat-feed flex flex-col gap-2  py-2 px-2 bg-[#0d4fa3] rounded-lg">
-        <ul
-          className="h-full w-full overflow-y-auto border-2 border-red-600"
-          ref={messagesListRef}
-        >
+      <div className="h-full chat-feed flex flex-col gap-2  py-2 px-2 bg-gray-300 rounded-lg">
+        <p className="text-lg font-semibold uppercase">live chat:</p>
+        <ul className="h-full w-full overflow-y-auto" ref={messagesListRef}>
           {messages.map((message, index) => (
             <li key={index} className="p-1 w-fit rounded-md break-words">
               <div className="flex justify-center items-center">
@@ -107,21 +105,6 @@ function LiveChat() {
             </li>
           ))}
         </ul>
-        {/* <form
-          onSubmit={sendMessage}
-          className="bg-white rounded-md border-2 border-green-600"
-        >
-          <input
-            type="text"
-            className="w-5/6 decoration-transparent mr-2 h-full border-none p-2 rounded-md"
-            placeholder="Write a comment..."
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-          />
-          <button type="submit" className="text-cyan-600 font-semibold">
-            Send
-          </button>
-        </form> */}
       </div>
     </>
   );

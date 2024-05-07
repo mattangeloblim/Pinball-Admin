@@ -59,7 +59,7 @@ export default function AdminSearch() {
   return (
     <div className="flex flex-col items-center font-['Poppins'] py-10">
       <div className="w-[80%] ">
-        <h1 className=" w-full text-3xl font-semibold text-center uppercase underline">
+        <h1 className=" w-full text-2xl font-semibold text-center mb-5 uppercase">
           search user
         </h1>
         <Box sx={{ width: 1 }}>

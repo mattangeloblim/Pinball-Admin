@@ -9,7 +9,7 @@ function LiveStreamFrame() {
         allow="fullscreen"
         // width="1280"
         // height="720"
-        src="https://demo.nanocosmos.de/nanoplayer/embed/1.3.3/nanoplayer.html?group.id=f39ebb0e-54e9-426f-908f-540925d2a58b&options.adaption.rule=deviationOfMean2&startIndex=0&playback.latencyControlMode=classic"
+        src={process.env.REACT_APP_STREAM_URL}
       ></iframe>
     </div>
   );

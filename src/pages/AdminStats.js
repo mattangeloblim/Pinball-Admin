@@ -17,7 +17,7 @@ function AdminStats() {
     <StatProvider>
       <div className="flex flex-col items-center font-['Poppins'] py-10">
         <div className=" w-[90%] flex flex-col justify-center gap-6">
-          <h1 className=" w-full text-3xl font-semibold text-center uppercase underline">
+          <h1 className=" w-full text-2xl font-semibold text-center mb-5 uppercase">
             Game statistics
           </h1>
           <div className="flex justify-between">

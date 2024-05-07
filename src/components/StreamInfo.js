@@ -21,37 +21,37 @@ function StreamInfo() {
     <Stat className="">
       <Featured className="gap-10 flex justify-center items-center ">
         <FeaturedItem className="">
-          <VideoSettingsIcon style={{ fontSize: "4rem" }} />
+          <VideoSettingsIcon style={{ fontSize: "2rem" }} />
           <FeaturedName id="status">Playing</FeaturedName>
           <Hr />
           <FeaturedTitle>Player State</FeaturedTitle>
         </FeaturedItem>
         <FeaturedItem>
-          <CenterFocusWeakIcon style={{ fontSize: "4rem" }} />
+          <CenterFocusWeakIcon style={{ fontSize: "2rem" }} />
           <FeaturedName id="streamName">Stream-XYZ</FeaturedName>
           <Hr />
           <FeaturedTitle>Current Stream</FeaturedTitle>
         </FeaturedItem>
         <FeaturedItem>
-          <AspectRatioIcon style={{ fontSize: "4rem" }} />
+          <AspectRatioIcon style={{ fontSize: "2rem" }} />
           <FeaturedName id="resolution">000x000</FeaturedName>
           <Hr />
           <FeaturedTitle>Resolution</FeaturedTitle>
         </FeaturedItem>
         <FeaturedItem>
-          <NetworkCheckIcon style={{ fontSize: "4rem" }} />
+          <NetworkCheckIcon style={{ fontSize: "2rem" }} />
           <FeaturedName id="playLatency">0.00s</FeaturedName>
           <Hr />
           <FeaturedTitle>Play Latency</FeaturedTitle>
         </FeaturedItem>
         <FeaturedItem>
-          <AutoAwesomeMotionIcon style={{ fontSize: "4rem" }} />
+          <AutoAwesomeMotionIcon style={{ fontSize: "2rem" }} />
           <FeaturedName id="framerate">0.00fps</FeaturedName>
           <Hr />
           <FeaturedTitle>Framerate</FeaturedTitle>
         </FeaturedItem>
         <FeaturedItem>
-          <GraphicEqIcon style={{ fontSize: "4rem" }} />
+          <GraphicEqIcon style={{ fontSize: "2rem" }} />
           <FeaturedName id="bitrate">0.000kbps</FeaturedName>
           <Hr />
           <FeaturedTitle>Bitrate</FeaturedTitle>

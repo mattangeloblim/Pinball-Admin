@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import {
   BackupTable as BackupTableIcon,
   KeyboardArrowDown as KeyboardArrowDownIcon,
@@ -8,6 +9,7 @@ import {
   Percent as PercentIcon,
   Gamepad as GamepadIcon,
 } from "@mui/icons-material";
+import LogoutIcon from "@mui/icons-material/Logout";
 import {
   Box,
   Menu,
@@ -68,6 +70,11 @@ const Navigation = () => {
       anchor: null,
     },
   ];
+
+  const handleLogout = () => {
+    Cookies.set("token", "", { expires: new Date(0) });
+    window.location.reload();
+  };
 
   return (
     <div className="h-screen flex flex-col ">
@@ -178,6 +185,10 @@ const Navigation = () => {
                   </div>
                 ))}
             </Box>
+
+            <div onClick={handleLogout} className="cursor-pointer">
+              <LogoutIcon />
+            </div>
           </Toolbar>
         </div>
       </div>
