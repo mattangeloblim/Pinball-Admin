@@ -22,7 +22,7 @@ const AdminPage = () => {
       console.log("Connected to OBS");
 
       await obs.call("SetCurrentSceneCollection", {
-        sceneCollectionName: "Untitled 2",
+        sceneCollectionName: "PINBALL SCENES",
       });
 
       await obs.call("SetCurrentProgramScene", {
